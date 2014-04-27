@@ -1,0 +1,53 @@
+extends layout
+
+block content
+
+  form.form-horizontal(method="POST", action="/setip")
+    fieldset
+        // Form Name 
+        legend Set Interface IP Address
+        // Select Basic 
+        .control-group
+          label.control-label(for='type')
+          .controls
+            select#type.input-xlarge(name='type')
+              option Static
+              option DHCP
+        #settings
+          // Prepended text
+          .control-group
+            label.control-label(for='ipaddress')
+            .controls
+              .input-prepend
+                span.add-on IP Address
+                input#ipaddress.input-xlarge(name='ipaddress', placeholder='(192.168.1.10)', type='text')
+          // Prepended text
+          .control-group
+            label.control-label(for='netmask')
+            .controls
+              .input-prepend
+                span.add-on Netmask
+                input#netmask.input-xlarge(name='netmask', placeholder='(255.255.255.0)', type='text')
+          // Prepended text
+          .control-group
+            label.control-label(for='gateway')
+            .controls
+              .input-prepend
+                span.add-on Gateway
+                input#gateway.input-xlarge(name='gateway', placeholder='(192.168.1.1)', type='text')
+          // Prepended checkbox 
+        .control-group
+          label.control-label(for='lanName')
+          .controls
+            .input-prepend
+              span.add-on
+                label.checkbox
+                  input(type='checkbox', checked='checked')
+              input#lanName.input-xlarge(name='lanName', type='text', value='Local Area Connection')
+
+        // Button 
+        .control-group
+          label.control-label(for='setinterfaceip')
+          .controls
+            button#setinterfaceip.btn.btn-success(name='setinterfaceip') Set
+  
